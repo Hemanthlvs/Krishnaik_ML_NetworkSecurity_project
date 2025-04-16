@@ -15,6 +15,12 @@ class ingestionconfig:
         self.ingested = os.path.join(self.ingestion_dir,training_pipeline.data_ingested_dir)
         self.train_data_dir = os.path.join(self.ingested,training_pipeline.training_dir)
         self.test_data_dir = os.path.join(self.ingested,training_pipeline.testing_dir)
+        self.source = os.path.join(training_pipeline.source_dir,training_pipeline.source_file)
+
+        self.train_file = os.path.join(self.train_data_dir,training_pipeline.train_file)
+        self.test_file = os.path.join(self.test_data_dir,training_pipeline.test_file)
+        
+        self.traintest_split_ratio = training_pipeline.train_test_split_ratio
 
 # if __name__ == '__main__':
 #     # Create an instance of pipelineconfig
