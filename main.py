@@ -16,7 +16,8 @@ if __name__ == '__main__':
         pipeline_config = pipelineconfig()  
         ingestion_config = ingestionconfig(pipeline_config)
         ingestionPipeline = ingestion_pipeline(ingestion_config)
-        ingestionPipeline.initiate_ingestion()
+        ingestionartifacts = ingestionPipeline.initiate_ingestion()
+        logging.info(f"Artifacts of ingestion : {ingestionartifacts}")
         logging.info("Ingestion completed")
 
     except Exception as e:

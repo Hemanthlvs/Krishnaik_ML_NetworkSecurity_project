@@ -69,6 +69,8 @@ class ingestion_pipeline():
             df = self.export_data_from_source()
             df = self.loading_data(df)
             self.traintest_split(df)
+            dataingestionartifacts = dataingestion(train_data_path=self.train_file, test_data_path=self.test_file)
+            return dataingestionartifacts
         
         except Exception as e:
             raise NetworkSecurityException(e,sys)

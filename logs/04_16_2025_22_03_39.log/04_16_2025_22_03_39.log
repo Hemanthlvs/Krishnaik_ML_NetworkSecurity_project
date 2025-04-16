@@ -1,0 +1,13 @@
+[ 2025-04-16 22:03:58,429 ] 15 root - INFO - Ingestion Initiated
+[ 2025-04-16 22:03:58,430 ] 25 root - INFO - Exporting the data from source folder
+[ 2025-04-16 22:03:58,515 ] 27 root - INFO - created dataframe
+[ 2025-04-16 22:03:58,516 ] 30 root - INFO - replaced na values to nan values
+[ 2025-04-16 22:03:58,520 ] 40 root - INFO - Artifact\04_16_2025_22_03_39\ingestion\feature_data\phisingData.csv -- path got created
+[ 2025-04-16 22:03:58,628 ] 42 root - INFO - data loaded into Artifact\04_16_2025_22_03_39\ingestion\feature_data\phisingData.csv -- path
+[ 2025-04-16 22:03:58,630 ] 52 root - INFO - Artifact\04_16_2025_22_03_39\ingestion\ingested\training_data\train.csv -- path got created
+[ 2025-04-16 22:03:58,633 ] 55 root - INFO - Artifact\04_16_2025_22_03_39\ingestion\ingested\testing_data\test.csv -- path got created
+[ 2025-04-16 22:03:58,638 ] 58 root - INFO - Data splitted into train and test
+[ 2025-04-16 22:03:58,690 ] 60 root - INFO - train data loaded into path -- Artifact\04_16_2025_22_03_39\ingestion\ingested\training_data\train.csv
+[ 2025-04-16 22:03:58,712 ] 62 root - INFO - test data loaded into path -- Artifact\04_16_2025_22_03_39\ingestion\ingested\testing_data\test.csv
+[ 2025-04-16 22:03:58,713 ] 20 root - INFO - Artifacts of ingestion : <class 'networksecurity.entity.artifact_entity.dataingestion'>
+[ 2025-04-16 22:03:58,713 ] 21 root - INFO - Ingestion completed
