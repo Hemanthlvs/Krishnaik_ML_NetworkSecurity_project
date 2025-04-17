@@ -22,6 +22,23 @@ class ingestionconfig:
         
         self.traintest_split_ratio = training_pipeline.train_test_split_ratio
 
+class validationfig:
+    def __init__(self, pipelineconfig:pipelineconfig):
+        self.validation_dir = os.path.join(pipelineconfig.artifact_time_stamp_dir,training_pipeline.datavalidation_dir)
+        self.validated_dir = os.path.join(self.validation_dir,training_pipeline.validated_dir)
+        self.invalidated_dir = os.path.join(self.validation_dir,training_pipeline.invalidated_dir)
+        self.drift_report_dir = os.path.join(self.validation_dir,training_pipeline.drift_report_dir)
+        
+        self.validated_train_file = os.path.join(self.validated_dir,training_pipeline.train_file)
+        self.validated_test_file = os.path.join(self.validated_dir,training_pipeline.test_file)
+        
+        self.invalidated_train_file = os.path.join(self.invalidated_dir,training_pipeline.train_file)
+        self.invalidated_test_file = os.path.join(self.invalidated_dir,training_pipeline.test_file)
+        
+        self.drift_report_file = os.path.join(self.drift_report_dir,training_pipeline.drift_report_file)
+
+        self.SCHEMA_FILE_PATH = os.path.join(training_pipeline.schema_folder,training_pipeline.schema_file)
+
 # if __name__ == '__main__':
 #     # Create an instance of pipelineconfig
 #     pipeline_config_instance = pipelineconfig()
