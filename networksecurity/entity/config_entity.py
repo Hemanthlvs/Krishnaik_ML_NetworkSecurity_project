@@ -1,4 +1,5 @@
 import os
+import numpy as np
 from datetime import datetime
 from networksecurity.constant import training_pipeline
 
@@ -7,6 +8,7 @@ class pipelineconfig():
         datetime = timestamp.strftime("%m_%d_%Y_%H_%M_%S")
         self.artifact_dir = training_pipeline.artifact_dir
         self.artifact_time_stamp_dir = os.path.join(self.artifact_dir,datetime)
+        self.target_column = training_pipeline.Target_column
 
 class ingestionconfig:
     def __init__(self,pipelineconfig:pipelineconfig):
@@ -22,7 +24,7 @@ class ingestionconfig:
         
         self.traintest_split_ratio = training_pipeline.train_test_split_ratio
 
-class validationfig:
+class validationconfig:
     def __init__(self, pipelineconfig:pipelineconfig):
         self.validation_dir = os.path.join(pipelineconfig.artifact_time_stamp_dir,training_pipeline.datavalidation_dir)
         self.validated_dir = os.path.join(self.validation_dir,training_pipeline.validated_dir)
@@ -38,6 +40,19 @@ class validationfig:
         self.drift_report_file = os.path.join(self.drift_report_dir,training_pipeline.drift_report_file)
 
         self.SCHEMA_FILE_PATH = os.path.join(training_pipeline.schema_folder,training_pipeline.schema_file)
+
+class transformationconfig:
+    def __init__(self, pipelineconfig:pipelineconfig):
+        self.transformation_dir = os.path.join(pipelineconfig.artifact_time_stamp_dir,training_pipeline.transformation_dir)
+        self.transformed_dir = os.path.join(self.transformation_dir,training_pipeline.transformed_dir)
+        self.transformed_obj = os.path.join(self.transformation_dir,training_pipeline.transformed_obj)
+        self.preprocessing_file = os.path.join(self.transformed_obj,training_pipeline.preprocessing_file)
+        self.target_column = pipelineconfig.target_column
+        self.KNN_Imputer_params:dict = {"missing_values":np.nan,
+                                        "n_neighbors":3,
+                                        "weights": "uniform"}
+        self.train_file = os.path.join(self.transformed_dir, training_pipeline.train_file.replace("csv","npy"))
+        self.test_file = os.path.join(self.transformed_dir, training_pipeline.test_file.replace("csv","npy"))
 
 # if __name__ == '__main__':
 #     # Create an instance of pipelineconfig

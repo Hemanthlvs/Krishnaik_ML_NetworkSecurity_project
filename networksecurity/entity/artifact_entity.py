@@ -13,4 +13,9 @@ class datavalidation():
     Drift_report_path:str
     Train_invalidation_path:str
     Test_invalidation_path:str
-    
+
+@dataclass
+class transformation():
+    traindata_transformed_path:str
+    testdata_transformed_path:str
+    preprocessing_obj_path:str

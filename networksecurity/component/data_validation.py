@@ -3,7 +3,7 @@ import numpy as np
 import os
 import sys
 
-from networksecurity.entity.config_entity import validationfig
+from networksecurity.entity.config_entity import validationconfig
 from networksecurity.entity.artifact_entity import dataingestion, datavalidation
 from networksecurity.logging.logger import logging
 from networksecurity.exception.exception import NetworkSecurityException
@@ -11,7 +11,7 @@ from networksecurity.utils.main_utils.utils import read_yaml, write_yaml
 from scipy.stats import ks_2samp
 
 class data_validation_pipeline():
-    def __init__(self, data_ingestion_artifacts: dataingestion, validation_config:validationfig):
+    def __init__(self, data_ingestion_artifacts: dataingestion, validation_config:validationconfig):
         try:
             self.dataIngestionArtifacts = data_ingestion_artifacts
             self.validationConfig = validation_config

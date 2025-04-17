@@ -1,9 +1,9 @@
-import os
 
 "common constants required"
 artifact_dir:str = 'Artifact'
 train_file:str = 'train.csv'
 test_file:str = 'test.csv'
+Target_column = 'Result'
 
 "Constants required for Ingestion"
 source_dir:str = 'Source'
@@ -23,6 +23,14 @@ invalidated_dir:str = 'invalidated'
 drift_report_dir:str = 'drift_report'
 drift_report_file:str = 'report.yaml'
 schema_folder:str = 'data_schema'
-schema_file:str = "schema.yaml"
+schema_file:str = 'schema.yaml'
+
+
+"Constants required for transformation"
+transformation_dir = 'data_transformation'
+transformed_dir = 'transformed'
+transformed_obj = 'transformed_object'
+preprocessing_file = 'preprocessing.pkl'
+
 
 
