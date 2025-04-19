@@ -1,0 +1,71 @@
+[ 2025-04-19 12:46:08,681 ] 18 root - INFO - Ingestion Initiated.......
+[ 2025-04-19 12:46:08,681 ] 25 root - INFO - Exporting the data from source folder
+[ 2025-04-19 12:46:08,726 ] 27 root - INFO - created dataframe
+[ 2025-04-19 12:46:08,726 ] 30 root - INFO - replaced na values to nan values
+[ 2025-04-19 12:46:08,730 ] 40 root - INFO - Artifact\04_19_2025_12_46_07\ingestion\feature_data\phisingData.csv -- path got created
+[ 2025-04-19 12:46:08,868 ] 42 root - INFO - data loaded into Artifact\04_19_2025_12_46_07\ingestion\feature_data\phisingData.csv -- path
+[ 2025-04-19 12:46:08,871 ] 52 root - INFO - Artifact\04_19_2025_12_46_07\ingestion\ingested\training_data\train.csv -- path got created
+[ 2025-04-19 12:46:08,875 ] 55 root - INFO - Artifact\04_19_2025_12_46_07\ingestion\ingested\testing_data\test.csv -- path got created
+[ 2025-04-19 12:46:08,880 ] 58 root - INFO - Data splitted into train and test
+[ 2025-04-19 12:46:08,945 ] 60 root - INFO - train data loaded into path -- Artifact\04_19_2025_12_46_07\ingestion\ingested\training_data\train.csv
+[ 2025-04-19 12:46:08,964 ] 62 root - INFO - test data loaded into path -- Artifact\04_19_2025_12_46_07\ingestion\ingested\testing_data\test.csv
+[ 2025-04-19 12:46:08,966 ] 23 root - INFO - ......................Ingestion artifacts......................
+[ 2025-04-19 12:46:08,966 ] 24 root - INFO - dataingestion(train_data_path='Artifact\\04_19_2025_12_46_07\\ingestion\\ingested\\training_data\\train.csv', test_data_path='Artifact\\04_19_2025_12_46_07\\ingestion\\ingested\\testing_data\\test.csv')
+[ 2025-04-19 12:46:08,966 ] 25 root - INFO - Ingestion completed
+[ 2025-04-19 12:46:08,966 ] 27 root - INFO - ###################################################################################################
+[ 2025-04-19 12:46:08,966 ] 29 root - INFO - validation initiated........
+[ 2025-04-19 12:46:08,973 ] 88 root - INFO - reading train_data from path --> Artifact\04_19_2025_12_46_07\ingestion\ingested\training_data\train.csv
+[ 2025-04-19 12:46:09,036 ] 90 root - INFO - reading train_data from path --> Artifact\04_19_2025_12_46_07\ingestion\ingested\testing_data\test.csv
+[ 2025-04-19 12:46:09,064 ] 93 root - INFO - column count check
+[ 2025-04-19 12:46:09,064 ] 35 root - INFO - columns counts : 31,31
+[ 2025-04-19 12:46:09,065 ] 98 root - INFO - Train dataframe columns are matching with schema given
+[ 2025-04-19 12:46:09,065 ] 35 root - INFO - columns counts : 31,31
+[ 2025-04-19 12:46:09,065 ] 103 root - INFO - Test dataframe columns are matching with schema given
+[ 2025-04-19 12:46:09,065 ] 105 root - INFO - Missing columns check
+[ 2025-04-19 12:46:09,065 ] 106 root - INFO - checking missing columns in train data
+[ 2025-04-19 12:46:09,065 ] 51 root - INFO - All columns are matching
+[ 2025-04-19 12:46:09,065 ] 111 root - INFO - All training data columns are matching with schema
+[ 2025-04-19 12:46:09,065 ] 112 root - INFO - checking missing columns in test data
+[ 2025-04-19 12:46:09,065 ] 51 root - INFO - All columns are matching
+[ 2025-04-19 12:46:09,065 ] 117 root - INFO - All training data columns are matching with schema
+[ 2025-04-19 12:46:09,065 ] 119 root - INFO - data drift started
+[ 2025-04-19 12:46:09,258 ] 80 root - INFO - report file : Artifact\04_19_2025_12_46_07\datavalidation\drift_report\report.yaml --> got created and data got loaded into it
+[ 2025-04-19 12:46:09,259 ] 121 root - INFO - data drift completed
+[ 2025-04-19 12:46:09,409 ] 124 root - INFO - Train data loaded into the path ---> Artifact\04_19_2025_12_46_07\datavalidation\validated\train.csv
+[ 2025-04-19 12:46:09,442 ] 126 root - INFO - Test data loaded into the path ---> Artifact\04_19_2025_12_46_07\datavalidation\validated\test.csv
+[ 2025-04-19 12:46:09,444 ] 33 root - INFO - ......................Validation artifacts......................
+[ 2025-04-19 12:46:09,444 ] 34 root - INFO - datavalidation(validation_status=True, Train_validation_path='Artifact\\04_19_2025_12_46_07\\datavalidation\\validated\\train.csv', Test_validation_path='Artifact\\04_19_2025_12_46_07\\datavalidation\\validated\\test.csv', Drift_report_path='Artifact\\04_19_2025_12_46_07\\datavalidation\\drift_report\\report.yaml', Train_invalidation_path=None, Test_invalidation_path=None)
+[ 2025-04-19 12:46:09,444 ] 35 root - INFO - Validation completed
+[ 2025-04-19 12:46:09,445 ] 37 root - INFO - ###################################################################################################
+[ 2025-04-19 12:46:09,445 ] 39 root - INFO - transformation initiated........
+[ 2025-04-19 12:46:09,445 ] 53 root - INFO - reading train data
+[ 2025-04-19 12:46:09,509 ] 55 root - INFO - reading test data
+[ 2025-04-19 12:46:09,532 ] 33 root - INFO - data got divided into input features and output feature
+[ 2025-04-19 12:46:09,534 ] 35 root - INFO - replaced -1's to 0's in output feature
+[ 2025-04-19 12:46:09,535 ] 33 root - INFO - data got divided into input features and output feature
+[ 2025-04-19 12:46:09,535 ] 35 root - INFO - replaced -1's to 0's in output feature
+[ 2025-04-19 12:46:09,535 ] 59 root - INFO - starting preprocessing
+[ 2025-04-19 12:46:09,543 ] 62 root - INFO - preprocessed training data
+[ 2025-04-19 12:46:09,545 ] 64 root - INFO - preprocessed testing data
+[ 2025-04-19 12:46:09,554 ] 69 root - INFO - train transformation file got loaded into path --> Artifact\04_19_2025_12_46_07\data_transformation\transformed\train.npy
+[ 2025-04-19 12:46:09,557 ] 71 root - INFO - test transformation file got loaded into path --> Artifact\04_19_2025_12_46_07\data_transformation\transformed\test.npy
+[ 2025-04-19 12:46:09,565 ] 74 root - INFO - preprocessor object got saved in the path --> Artifact\04_19_2025_12_46_07\data_transformation\transformed_object\preprocessing.pkl
+[ 2025-04-19 12:46:09,568 ] 43 root - INFO - ......................transformation artifacts......................
+[ 2025-04-19 12:46:09,568 ] 44 root - INFO - transformation(traindata_transformed_path='Artifact\\04_19_2025_12_46_07\\data_transformation\\transformed\\train.npy', testdata_transformed_path='Artifact\\04_19_2025_12_46_07\\data_transformation\\transformed\\test.npy', preprocessing_obj_path='Artifact\\04_19_2025_12_46_07\\data_transformation\\transformed_object\\preprocessing.pkl')
+[ 2025-04-19 12:46:09,568 ] 45 root - INFO - transformation completed
+[ 2025-04-19 12:46:09,568 ] 47 root - INFO - ###################################################################################################
+[ 2025-04-19 12:46:09,568 ] 48 root - INFO - modeling initiated........
+[ 2025-04-19 12:46:09,606 ] 66 root - INFO - started model evaluation
+[ 2025-04-19 12:51:10,007 ] 68 root - INFO - model evaluation completed
+[ 2025-04-19 12:51:10,008 ] 70 root - INFO - report: models_report
+[ 2025-04-19 12:51:10,011 ] 72 root - INFO - models report file created in the path --> Artifact\04_19_2025_12_46_07\model_trainer\trained_model\models_report
+[ 2025-04-19 12:51:10,011 ] 74 root - INFO - selecting model based on best r2_score
+[ 2025-04-19 12:51:10,214 ] 81 root - INFO - ..........................train classfication metrics............................
+[ 2025-04-19 12:51:10,214 ] 82 root - INFO - classification_metrics_artifacts(f1_score=0.9915521628498728, precision_score=0.9894373349583587, recall_score=0.9936760505915953)
+[ 2025-04-19 12:51:10,282 ] 85 root - INFO - ..........................test classfication metrics............................
+[ 2025-04-19 12:51:10,282 ] 86 root - INFO - classification_metrics_artifacts(f1_score=0.9731012658227848, precision_score=0.9662215239591516, recall_score=0.9800796812749004)
+[ 2025-04-19 12:51:10,367 ] 89 root - INFO - best model saved in the path --> Artifact\04_19_2025_12_46_07\model_trainer\trained_model\model.pkl
+[ 2025-04-19 12:51:10,393 ] 52 root - INFO - ......................model artifacts......................
+[ 2025-04-19 12:51:10,393 ] 53 root - INFO - data_model(models_report_path='Artifact\\04_19_2025_12_46_07\\model_trainer\\trained_model\\models_report', best_model_path='Artifact\\04_19_2025_12_46_07\\model_trainer\\trained_model\\model.pkl', trained_classification_metrics=classification_metrics_artifacts(f1_score=0.9915521628498728, precision_score=0.9894373349583587, recall_score=0.9936760505915953), test_classification_metrics=classification_metrics_artifacts(f1_score=0.9731012658227848, precision_score=0.9662215239591516, recall_score=0.9800796812749004))
+[ 2025-04-19 12:51:10,394 ] 54 root - INFO - modeling completed
+[ 2025-04-19 12:51:10,394 ] 55 root - INFO - ###################################################################################################

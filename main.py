@@ -2,12 +2,13 @@ import os
 import sys
 import pandas as pd
 import numpy as np
-from networksecurity.entity.config_entity import pipelineconfig, ingestionconfig, validationconfig, transformationconfig
+from networksecurity.entity.config_entity import pipelineconfig, ingestionconfig, validationconfig, transformationconfig, modelconfig
 from networksecurity.entity.artifact_entity import dataingestion
 from networksecurity.constant import training_pipeline
 from networksecurity.component.data_ingestion import ingestion_pipeline
 from networksecurity.component.data_validation import data_validation_pipeline
 from networksecurity.component.data_transformation import transformation_pipeline
+from networksecurity.component.data_modeling import data_modeling_pipeline
 
 from networksecurity.logging.logger import logging
 from networksecurity.exception.exception import NetworkSecurityException
@@ -44,7 +45,15 @@ if __name__ == '__main__':
         logging.info("transformation completed")
         
         logging.info("###################################################################################################")
-        
+        logging.info("modeling initiated........")
+        modeling_config = modelconfig(pipeline_config)
+        modeling_pipeline = data_modeling_pipeline(transformation_artifacts, modeling_config)
+        model_artifacts = modeling_pipeline.initiate_model_training()
+        logging.info("......................model artifacts......................")
+        logging.info(model_artifacts)
+        logging.info("modeling completed")        
+        logging.info("###################################################################################################")
+
 
     except Exception as e:
         raise NetworkSecurityException(e,sys)

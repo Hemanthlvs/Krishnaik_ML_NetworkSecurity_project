@@ -33,4 +33,8 @@ transformed_obj = 'transformed_object'
 preprocessing_file = 'preprocessing.pkl'
 
 
-
+"Constants required for transformation"
+model_dir = 'model_trainer'
+model_trained_dir = 'trained_model'
+model_file_name = 'model.pkl'
+models_report_file = 'models_report'

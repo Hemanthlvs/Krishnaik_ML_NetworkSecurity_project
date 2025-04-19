@@ -54,6 +54,16 @@ class transformationconfig:
         self.train_file = os.path.join(self.transformed_dir, training_pipeline.train_file.replace("csv","npy"))
         self.test_file = os.path.join(self.transformed_dir, training_pipeline.test_file.replace("csv","npy"))
 
+
+class modelconfig:
+    def __init__(self, pipelineconfig:pipelineconfig):
+        self.model_directory = os.path.join(pipelineconfig.artifact_time_stamp_dir, training_pipeline.model_dir)
+        self.model_trained_directory = os.path.join(self.model_directory, training_pipeline.model_trained_dir)
+        self.model_file = os.path.join(self.model_trained_directory, training_pipeline.model_file_name)
+        self.models_report = os.path.join(self.model_trained_directory, training_pipeline.models_report_file)
+
+
+
 # if __name__ == '__main__':
 #     # Create an instance of pipelineconfig
 #     pipeline_config_instance = pipelineconfig()
