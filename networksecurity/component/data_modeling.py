@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import sys
 import os
+import mlflow
 
 from networksecurity.entity.config_entity import modelconfig
 from networksecurity.entity.artifact_entity import transformation, data_model
@@ -27,6 +28,17 @@ class data_modeling_pipeline():
             self.model_config = model_config
         except Exception as e:
             raise NetworkSecurityException(e,sys)
+    
+    def track_mlflow(self, best_model, classification_metrics):
+        with mlflow.start_run():
+            f1_score = classification_metrics.f1_score
+            precision_score = classification_metrics.precision_score
+            recall_score = classification_metrics.recall_score
+
+            mlflow.log_metric("f1_score", f1_score)
+            mlflow.log_metric("precision_score", precision_score)
+            mlflow.log_metric("recall_score", recall_score)
+            mlflow.sklearn.log_model(best_model,"model")
 
     def model_training(self, X_train, y_train, X_test, y_test):
         try:
@@ -80,10 +92,16 @@ class data_modeling_pipeline():
             train_classification_metrics = classification_metrics(y_train,y_train_pred)
             logging.info("..........................train classfication metrics............................")
             logging.info(train_classification_metrics)
+            ## Tracking the experiements with mlflow
+            self.track_mlflow(best_model,train_classification_metrics)
+
             y_test_pred = best_model.predict(X_test)
             test_classification_metrics = classification_metrics(y_test,y_test_pred)
             logging.info("..........................test classfication metrics............................")
             logging.info(test_classification_metrics)
+            ## Tracking the experiements with mlflow
+            self.track_mlflow(best_model,test_classification_metrics)
+
 
             save_pickle_file(self.model_config.model_file, best_model)
             logging.info(f"best model saved in the path --> {self.model_config.model_file}")
