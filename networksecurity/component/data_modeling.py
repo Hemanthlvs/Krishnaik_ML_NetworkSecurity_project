@@ -21,6 +21,11 @@ from sklearn.ensemble import (
     RandomForestClassifier,
 )
 
+# import dagshub
+# dagshub.init(repo_owner='Hemanthlvs', repo_name='Krishnaik_ML_NetworkSecurity_project', mlflow=True)
+# #by using dagshug we are creating mlflow experiments in dagshub instead of local machine.
+# #for this we need to create a account in dagshub and connect that with guthub.
+
 class data_modeling_pipeline():
     def __init__(self, transformation_artifacts: transformation, model_config:modelconfig):
         try:
@@ -109,6 +114,14 @@ class data_modeling_pipeline():
             preprocessor = load_pickle_file(self.transformation_artifacts.preprocessing_obj_path)
             network_model = networkmodel(preprocessor, best_model)
 
+            os.makedirs(os.path.dirname(self.model_config.final_model_file_path), exist_ok=True)
+            save_pickle_file(self.model_config.final_model_file_path, best_model)
+            logging.info(f"Final model loaded into the path --> {self.model_config.final_model_file_path}")
+
+            os.makedirs(os.path.dirname(self.model_config.final_transformed_obj_path), exist_ok=True)
+            save_pickle_file(self.model_config.final_transformed_obj_path, preprocessor)
+            logging.info(f"Final model loaded into the path --> {self.model_config.final_transformed_obj_path}")
+            
             data_model_artifacts = data_model(
                 models_report_path = self.model_config.models_report,
                 best_model_path = self.model_config.model_file,

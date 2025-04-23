@@ -53,6 +53,7 @@ class transformationconfig:
                                         "weights": "uniform"}
         self.train_file = os.path.join(self.transformed_dir, training_pipeline.train_file.replace("csv","npy"))
         self.test_file = os.path.join(self.transformed_dir, training_pipeline.test_file.replace("csv","npy"))
+        
 
 
 class modelconfig:
@@ -61,6 +62,13 @@ class modelconfig:
         self.model_trained_directory = os.path.join(self.model_directory, training_pipeline.model_trained_dir)
         self.model_file = os.path.join(self.model_trained_directory, training_pipeline.model_file_name)
         self.models_report = os.path.join(self.model_trained_directory, training_pipeline.models_report_file)
+        self.final_model_file_path = os.path.join(training_pipeline.final_folder, 
+                                                  training_pipeline.final_model_folder, 
+                                                  training_pipeline.final_model_file)
+        self.final_transformed_obj_path = os.path.join(training_pipeline.final_folder, 
+                                                       training_pipeline.final_transformed_obj_folder, 
+                                                       training_pipeline.final_transformed_obj)
+        
 
 
 
